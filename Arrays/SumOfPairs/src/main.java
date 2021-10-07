@@ -1,17 +1,30 @@
+import java.util.Scanner;
+
 public class main {
     /**
      * show all the pairs where the sum of those pairs equal to the target value
      */
     public static void main(String[] args) {
-        int targetValue = 40;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the target value: ");
+        int targetValue = input.nextInt();
+
+        System.out.println("--------------Doing this with Double Loop-----------------------");
+        long startTimeDouble = System.nanoTime();
         SumDoubleLoop(targetValue);
-        System.out.println("Single Loop values");
+        long endTimeDouble = System.nanoTime();
+        System.out.println("That took double Loop: " + (endTimeDouble - startTimeDouble) + " nanoseconds to execute");
+
+        System.out.println("--------------Doing this with Single Loop-----------------------");
+        long startTime = System.nanoTime();
         SumSingleLoop(targetValue);
+        long endTime = System.nanoTime();
+        System.out.println("That took Single Loop: " + (endTime - startTime) + " nanoseconds to execute");
     }
 
     public static void SumDoubleLoop(int targetValue) {
-        int[] array = {-10, 18, 50, 35, 30, 20, 10, 9, 1, 9, 22, 8, 6, 4, 3, 7};
-        for (int i = 0; i < array.length; i++) {
+        int[] array = {10, 20, 50, 35,5};
+        for (int i = 0; i < array.length-1; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if (array[i] + array[j] == targetValue) {
                     System.out.println("(" + array[i] + "," + array[j] + ")");
@@ -21,7 +34,7 @@ public class main {
     }
 
     public static void SumSingleLoop(int targetValue) {
-        int[] array = {-10, 18, 50, 35, 30, 20, 10, 9, 1, 9, 22, 8, 6, 4, 3, 7};
+        int[] array = {10, 20, 50, 35,5};
         int start = 1;
         for (int i = 0; i < array.length; ) {
             if (start < array.length && i != start) {
