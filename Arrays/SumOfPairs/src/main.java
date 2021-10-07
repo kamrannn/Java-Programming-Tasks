@@ -11,20 +11,14 @@ public class main {
 
     public static void SumDoubleLoop(int targetValue) {
         int[] array = {-10, 18, 50, 35, 30, 20, 10, 9, 1, 9, 22, 8, 6, 4, 3, 7};
-        int dualloopcount = 0;
         for (int i = 0; i < array.length; i++) {
-            dualloopcount++;
             for (int j = i + 1; j < array.length; j++) {
-                dualloopcount++;
                 if (array[i] + array[j] == targetValue) {
                     System.out.println("(" + array[i] + "," + array[j] + ")");
                 }
             }
         }
-
-        System.out.println("dual loop" + dualloopcount);
     }
-
 
     public static void SumSingleLoop(int targetValue) {
         int[] array = {-10, 18, 50, 35, 30, 20, 10, 9, 1, 9, 22, 8, 6, 4, 3, 7};
